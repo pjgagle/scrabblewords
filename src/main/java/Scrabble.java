@@ -3,11 +3,9 @@ import java.util.Map;
 
 public class Scrabble {
     public String word;
-    public int score;
 
-    public Scrabble(String word, int score) {
+    public Scrabble(String word) {
         this.word = word;
-        this.score = score;
     }
 
     public String getWord() {
@@ -16,7 +14,8 @@ public class Scrabble {
 
     public int getScore() {
         Map<Character, Integer> letterMap = new HashMap<Character, Integer>();
-        String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*)(+=?/,.-`~_><}{];:[" +
+                "1234567890";
 
         for (int i = 0; i <letters.length(); i++) {
             if (letters.charAt(i) == 'A' || letters.charAt(i) == 'E' || letters.charAt(i) == 'I' ||
@@ -51,6 +50,21 @@ public class Scrabble {
             if (letters.charAt(i) == 'Q' || letters.charAt(i) == 'Z') {
                 letterMap.put(letters.charAt(i), 10);
                 letterMap.put(letters.toLowerCase().charAt(i), 10);
+            }
+            if (letters.charAt(i) == '!' || letters.charAt(i) == '@' || letters.charAt(i) == '#' ||
+                    letters.charAt(i) == '$' || letters.charAt(i) == '%' || letters.charAt(i) == '^' ||
+                    letters.charAt(i) == '&' || letters.charAt(i) == '*' || letters.charAt(i) == ')' ||
+                    letters.charAt(i) == '(' || letters.charAt(i) == '+' || letters.charAt(i) == '=' ||
+                    letters.charAt(i) == '?' || letters.charAt(i) == '/' || letters.charAt(i) == ',' ||
+                    letters.charAt(i) == '.' || letters.charAt(i) == '-' || letters.charAt(i) == '`' ||
+                    letters.charAt(i) == '~' || letters.charAt(i) == '_' || letters.charAt(i) == '>' ||
+                    letters.charAt(i) == ';' || letters.charAt(i) == ':' || letters.charAt(i) == '<' ||
+                    letters.charAt(i) == '}' || letters.charAt(i) == '{' || letters.charAt(i) == ']' ||
+                    letters.charAt(i) == '[' || letters.charAt(i) == '1' || letters.charAt(i) == '2' ||
+                    letters.charAt(i) == '3' || letters.charAt(i) == '4' || letters.charAt(i) == '5' ||
+                    letters.charAt(i) == '6' || letters.charAt(i) == '7' || letters.charAt(i) == '8' ||
+                    letters.charAt(i) == '9' || letters.charAt(i) == '0') {
+                letterMap.put(letters.charAt(i), 0);
             }
         }
         int totalValue = 0;
